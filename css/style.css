@@ -1,6 +1,22 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body
 {
+    min-height: 100vh;
     background-color: #b1b5be;
+    min-width: fit-content;
+}
+
+.main-container
+{
+    display: grid;
+    gap: .5rem;
+    margin: 2rem;
 }
 
 header
@@ -8,22 +24,19 @@ header
     background-color: #9f2063;
     color: white;
     text-align: center;
-    margin: 2rem 3rem .5rem 3rem;
 }
 
 .grid-container
 {
     background-color: #23b87c;
-    display: grid;
-    grid-template: repeat(3, 1fr) / 1fr;
-    margin: .5rem 3rem .5rem 3rem;
+    color: white;
 }
 
 .grid-article
 {
     background-color: #e4195b;
     color: white;
-    margin: .75rem 2rem .75rem 2rem;
+    margin: .75rem 2rem;
     align-content: center;
     text-align: center;
     height: 3rem;
@@ -34,7 +47,6 @@ header
 {
     background-color: #116395;
     color: white;
-    margin: 0rem 3rem .5rem 3rem;
     text-align: center;
 }
 
@@ -42,7 +54,6 @@ header
 {
     background-color: #25a4b5;
     color: white;
-    margin: 0rem 3rem .5rem 3rem;
     text-align: center;
 }
 
@@ -50,7 +61,6 @@ footer
 {
     background-color: #e06b26;
     color: white;
-    margin: 0rem 3rem 0rem 3rem;
     text-align: center;
 }
 
@@ -61,4 +71,82 @@ header, .grid-container, .grid-article, aside, footer {
 header, aside, footer
 {
     font-size: 1.75rem
+}
+
+@media screen and (min-width: 900px)
+{
+    .main-container
+    {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "header header header header"
+            "aside-top grid-container grid-container aside-bottom"
+            "footer footer footer footer";
+    }
+
+    header
+    {
+        grid-area: header;
+    }
+
+    .aside-top
+    {
+        grid-area: aside-top;
+        align-content: center;
+    }
+
+    .grid-container
+    {
+        border: 3px solid black;
+        grid-area: grid-container;
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(3, 1fr);;
+        grid-template-areas: 
+        ". . ."
+        ". . ."
+        "grid-article-1 grid-article-2 grid-article-3";
+        /* justify-content: space-between; */
+        /* justify-content: center; */
+        /* justify-items: center; */
+        /* align-content: center; */
+        /* align-items: center; */
+        /* justify-items: center; */
+    }
+
+    .grid-article
+    {
+        /* justify-content: space-between; */
+        /* grid-row: 3; */
+        justify-content: center;
+    }
+
+    .grid-article-1
+    {
+        grid-area: grid-article-1;
+        border: 3px solid black;
+    }
+
+    .grid-article-2
+    {
+        grid-area: grid-article-2;
+        border: 3px solid orange;
+    }
+
+    .grid-article-3
+    {
+        grid-area: grid-article-3;
+        border: 3px solid lightblue;
+    }
+
+    .aside-bottom
+    {
+        grid-area: aside-bottom;
+        align-content: center;
+    }
+
+    .footer
+    {
+        grid-area: footer;
+    }
 }
