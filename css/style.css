@@ -32,6 +32,11 @@ header
     color: white;
 }
 
+.grid-container-text
+{
+    display: none;
+}
+
 .grid-article
 {
     background-color: #e4195b;
@@ -70,7 +75,7 @@ header, .grid-container, .grid-article, aside, footer {
 
 header, aside, footer
 {
-    font-size: 1.75rem
+    font-size: 1.75rem;
 }
 
 @media screen and (min-width: 900px)
@@ -98,45 +103,43 @@ header, aside, footer
 
     .grid-container
     {
-        border: 3px solid black;
         grid-area: grid-container;
         display: grid;
         grid-template: repeat(3, 1fr) / repeat(3, 1fr);;
         grid-template-areas: 
-        ". . ."
-        ". . ."
+        "grid-text grid-text grid-text"
+        "grid-text grid-text grid-text"
         "grid-article-1 grid-article-2 grid-article-3";
-        /* justify-content: space-between; */
-        /* justify-content: center; */
-        /* justify-items: center; */
-        /* align-content: center; */
-        /* align-items: center; */
-        /* justify-items: center; */
     }
 
     .grid-article
     {
-        /* justify-content: space-between; */
-        /* grid-row: 3; */
-        justify-content: center;
+        margin: .75rem .5rem;
+    }
+
+    .grid-container-text
+    {
+        display: block;
+        grid-area: grid-text;
+        grid: 1 / 4 / 1 / 4;
+        text-align: center;
+        align-content: end;
+        font-size: 1.75rem;
     }
 
     .grid-article-1
     {
         grid-area: grid-article-1;
-        border: 3px solid black;
     }
 
     .grid-article-2
     {
         grid-area: grid-article-2;
-        border: 3px solid orange;
     }
 
     .grid-article-3
     {
         grid-area: grid-article-3;
-        border: 3px solid lightblue;
     }
 
     .aside-bottom
